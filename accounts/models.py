@@ -42,7 +42,7 @@ class SiteUser(AbstractBaseUser):
     username = models.CharField(verbose_name='Псевдоним', max_length=20, unique=True)
     email = models.EmailField(verbose_name='Email', unique=True)
     register_date = models.DateField(verbose_name='Дата регистрации', auto_now=True)
-    is_admin = models.BooleanField(default=False)
+    is_admin = models.BooleanField(verbose_name='Является администратором', default=False)
     is_active = models.BooleanField(verbose_name='Профиль активен', default=True)
 
     objects = SiteUserManager()
