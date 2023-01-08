@@ -1,10 +1,12 @@
 from django.contrib.auth import get_user_model
 from rest_framework import serializers
+from topics.models import Topic, Message
 
 UserModel = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
+
     class Meta:
         model = UserModel
         fields = '__all__'
@@ -14,7 +16,6 @@ class UserSerializer(serializers.ModelSerializer):
                 'write_only': True
             }
         }
-
 
     def create(self, validated_data):
         user = UserModel(
@@ -27,3 +28,11 @@ class UserSerializer(serializers.ModelSerializer):
         user.set_password(validated_data['password'])
         user.save()
         return user
+
+
+class TopicSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Topic
+        fields = '__all__'
+        read_only_fields = ('id', 'create_date', 'slug', 'author')
