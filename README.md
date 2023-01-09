@@ -34,12 +34,6 @@ pip install -r requirements.txt
 
 6) Заполнить файл .env.example и переименовать его в .env
 
-```
-DJANGO_SECRET_KEY=
-DB_PASS=
-DB_USER=
-```
-
 7) Выполнить миграции
 ```
 python manage.py migrate
