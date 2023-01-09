@@ -36,3 +36,11 @@ class TopicSerializer(serializers.ModelSerializer):
         model = Topic
         fields = '__all__'
         read_only_fields = ('id', 'create_date', 'slug', 'author')
+
+
+class MessageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Message
+        fields = '__all__'
+        read_only_fields = ('id', 'create_date', 'author')

@@ -5,7 +5,7 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
-from .serializers import UserSerializer, TopicSerializer
+from .serializers import UserSerializer, TopicSerializer, MessageSerializer
 from .permissions import UpdateOwnProfile, IsAuthorOrNot
 from topics.models import Topic, Message
 # Create your views here.
@@ -40,3 +40,11 @@ class TopicViewSet(viewsets.ModelViewSet):
         serializer.save(author=self.request.user)
 
 
+class MessageViewSet(viewsets.ModelViewSet):
+    serializer_class = MessageSerializer
+    queryset = Message.objects.all()
+    authentication_classes = (TokenAuthentication,)
+    permission_classes = (IsAuthorOrNot, IsAuthenticatedOrReadOnly)
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
