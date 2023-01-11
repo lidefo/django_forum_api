@@ -6,6 +6,7 @@ from django.db import models
 User = get_user_model()
 
 class Topic(models.Model):
+    '''Topic contains messages.'''
     title = models.CharField(max_length=50, null=False,verbose_name='Название', unique=True)
     description = models.TextField(max_length=3500, null=False,verbose_name='Описание')
     create_date = models.DateTimeField(auto_now=True, verbose_name='Дата создания')
@@ -22,6 +23,7 @@ class Topic(models.Model):
 
 
 class Message(models.Model):
+    '''Message model.'''
     text = models.TextField(max_length=3500, verbose_name='Текст')
     create_date = models.DateTimeField(auto_now=True, verbose_name='Дата публикации')
     author = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Создатель публикации')

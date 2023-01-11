@@ -14,6 +14,7 @@ UserModel = get_user_model()
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    '''Creating and updating profiles.'''
     serializer_class = UserSerializer
     queryset = UserModel.objects.all()
     authentication_classes = (TokenAuthentication, )
@@ -23,6 +24,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class LoginViewSet(viewsets.ModelViewSet):
+    '''Checks email and password and returns an auth token.'''
     queryset = UserModel.objects.all()
     serializer_class = AuthTokenSerializer
 
@@ -31,6 +33,7 @@ class LoginViewSet(viewsets.ModelViewSet):
 
 
 class TopicViewSet(viewsets.ModelViewSet):
+    '''Creating, deleting and updating topics.'''
     serializer_class = TopicSerializer
     queryset = Topic.objects.all()
     authentication_classes = (TokenAuthentication,)
@@ -41,6 +44,7 @@ class TopicViewSet(viewsets.ModelViewSet):
 
 
 class MessageViewSet(viewsets.ModelViewSet):
+    '''Creating, deleting and updating messages.'''
     serializer_class = MessageSerializer
     queryset = Message.objects.all()
     authentication_classes = (TokenAuthentication,)

@@ -6,6 +6,7 @@ UserModel = get_user_model()
 
 
 class UserSerializer(serializers.ModelSerializer):
+    '''A serializer for profiles.'''
 
     class Meta:
         model = UserModel
@@ -31,6 +32,7 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class TopicSerializer(serializers.ModelSerializer):
+    '''A serializer for topics.'''
 
     class Meta:
         model = Topic
@@ -39,6 +41,7 @@ class TopicSerializer(serializers.ModelSerializer):
 
 
 class MessageSerializer(serializers.ModelSerializer):
+    '''A serializer for messages.'''
 
     class Meta:
         model = Message
