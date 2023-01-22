@@ -30,7 +30,7 @@ python -m venv venv
 pip install -r requirements.txt
 ```
 
-5) Создать базу данных PostreSQL с названием **"forum_api"**
+5) Создать базу данных PostreSQL
 
 6) Заполнить файл .env.example и переименовать его в .env
 
