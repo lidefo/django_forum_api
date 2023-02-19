@@ -4,6 +4,7 @@
 
 ## English documentation
 
+### [API documentation](https://github.com/lidefo/django_forum_api/blob/main/APIdocs.md)
 ## Project description:
 
 A full description of the project for which the API was created is presented in the repository, the link to which is below.
@@ -55,6 +56,8 @@ python manage.py runserver
 
 ## Документация на русском
 ## Описание проекта:
+
+### [API документация](https://github.com/lidefo/django_forum_api/blob/main/APIdocs.md)
 
 Полное описание проекта, для которого создавалось API, представлено в репозитории, ссылка на который ниже.
 ### [django_forum](https://github.com/lidefo/django_forum)
