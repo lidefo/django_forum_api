@@ -5,6 +5,7 @@ from rest_framework.authtoken.serializers import AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
+from api.utils import CustomObtainAuthToken
 from .serializers import UserSerializer, TopicSerializer, MessageSerializer
 from .permissions import UpdateOwnProfile, IsAuthorOrNot
 from topics.models import Topic, Message
@@ -29,7 +30,7 @@ class LoginViewSet(viewsets.ModelViewSet):
     serializer_class = AuthTokenSerializer
 
     def create(self, request, *args, **kwargs):
-        return ObtainAuthToken().as_view()(request=request._request)
+        return CustomObtainAuthToken().as_view()(request=request._request)
 
 
 class TopicViewSet(viewsets.ModelViewSet):

@@ -41,6 +41,7 @@ class SiteUser(AbstractBaseUser):
     last_name = models.CharField(verbose_name='Фамилия', max_length=40, blank=True, default='')
     username = models.CharField(verbose_name='Псевдоним', max_length=20, unique=True)
     email = models.EmailField(verbose_name='Email', unique=True)
+    avatar_colour = models.CharField(verbose_name='Цвет аватара', max_length=7, default='#ffffff')
     register_date = models.DateField(verbose_name='Дата регистрации', auto_now=True)
     is_admin = models.BooleanField(verbose_name='Является администратором', default=False)
     is_active = models.BooleanField(verbose_name='Профиль активен', default=True)
@@ -48,7 +49,7 @@ class SiteUser(AbstractBaseUser):
     objects = SiteUserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username']
+    REQUIRED_FIELDS = ['username', 'password']
 
     def __str__(self):
         return self.username
