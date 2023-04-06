@@ -27,7 +27,7 @@ class Message(models.Model):
     text = models.TextField(max_length=3500, verbose_name='Текст')
     create_date = models.DateTimeField(auto_now=True, verbose_name='Дата публикации')
     author = models.ForeignKey(User, on_delete=models.PROTECT, verbose_name='Создатель публикации')
-    topic = models.ForeignKey(Topic, default='', on_delete=models.PROTECT, verbose_name='Тред сообщения')
+    topic = models.ForeignKey(Topic, default='', on_delete=models.CASCADE, verbose_name='Тред сообщения')
 
     def __str__(self):
         return str(self.author) + ' | ' + str(self.create_date)
